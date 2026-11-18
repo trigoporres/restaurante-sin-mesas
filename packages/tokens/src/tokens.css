@@ -1,0 +1,29 @@
+/* Identidad v0.1: paleta y tipografía. Fuente de verdad de los tokens. */
+:root {
+  /* Superficies y tinta */
+  --papel: #f4ecdf;
+  --kraft: #e6d5b8;
+  --tinta: #211c17;
+  --tinta-suave: #5b5148;
+
+  /* Acentos (también la paleta de los gráficos) */
+  --pimenton: #eb6834;
+  --yema: #eda100;
+  --jade: #1baf7a;
+  --azulejo: #2a78d6;
+
+  /* Tupper: tapa translúcida */
+  --vidrio: rgba(214, 232, 228, 0.55);
+  --vidrio-borde: rgba(107, 143, 138, 0.4);
+
+  /* Tipografía */
+  --fuente-titular: "Fraunces", Georgia, serif;
+  --fuente-texto: "Instrument Sans", system-ui, sans-serif;
+  --fuente-datos: "DM Mono", ui-monospace, monospace;
+  --fuente-mano: "Caveat", cursive;
+
+  /* Espaciado y forma */
+  --radio-obento: 10px;
+  --radio-tupper: 26px;
+  --espacio: 8px;
+}

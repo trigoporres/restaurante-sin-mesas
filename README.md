@@ -18,7 +18,7 @@ Es un proyecto con identidad propia que, además, funciona como el portfolio de 
 | Fase | Qué incluye | Estado |
 |------|-------------|--------|
 | 1. Identidad | Universo, paleta, tipografía, voz, nombre | Casi cerrada (falta el nombre) |
-| 2. Corte vertical | La carta, el pedido y un tupper servido | Siguiente |
+| 2. Corte vertical | La carta, el pedido y un tupper servido | En marcha (esqueleto hecho: carta y pedido básico) |
 | 3. Motor y datos | Todos los platos como datos | Pendiente |
 | 4. Pulido | Animación, rendimiento, accesibilidad, 3D opcional | Pendiente |
 | 5. Integración | Enlace desde el portfolio, lanzamiento | Pendiente |
@@ -44,6 +44,32 @@ Los cuatro acentos son también la paleta de los gráficos. Sobre el fondo papel
 **Voz:** cercana, directa y con humor suave. Ejemplos: "Lo de hoy", "La cuenta, por favor", "Ese plato se ha acabado", "Para llevar".
 
 La muestra visual está en [`docs/identidad/index.html`](docs/identidad/index.html).
+
+## Tecnología
+
+- **Astro + islas de React + TypeScript estricto.** Páginas estáticas con SEO y React solo donde hay interacción.
+- **Monorepo con pnpm workspaces:**
+  - `apps/web`: la web.
+  - `packages/tokens`: paleta y tipografía (CSS y TypeScript).
+  - `packages/content`: los platos como datos (Markdown con esquema Zod, validado por las content collections de Astro).
+- **Estado del pedido:** nanostores, sincronizado con la URL (`#pedido=a,b`) para que el enlace recomponga la caja.
+- **Estilos:** CSS con variables y CSS Modules.
+- **Calidad:** Biome, Vitest, `astro check` y GitHub Actions.
+
+Previsto para más adelante: Motion para las animaciones, D3 para los gráficos, exportación a imagen y PDF, Playwright y Storybook.
+
+## Cómo empezar
+
+Requiere Node 22 o superior y pnpm.
+
+```bash
+pnpm install
+pnpm dev        # servidor de desarrollo
+pnpm build      # build de producción
+pnpm test       # tests con Vitest
+pnpm typecheck  # comprobación de tipos
+pnpm lint       # Biome
+```
 
 ## Licencia
 

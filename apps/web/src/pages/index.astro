@@ -1,0 +1,33 @@
+---
+import { getCollection } from "astro:content";
+import Carta, { type PlatoVista } from "../components/Carta";
+import Base from "../layouts/Base.astro";
+
+const ORDEN_SECCIONES = ["entrantes", "principales", "maridaje", "la-cuenta"] as const;
+
+const entradas = await getCollection("platos");
+const platos: PlatoVista[] = entradas
+  .sort(
+    (a, b) =>
+      ORDEN_SECCIONES.indexOf(a.data.seccion) - ORDEN_SECCIONES.indexOf(b.data.seccion) ||
+      a.data.orden - b.data.orden,
+  )
+  .map(({ id, data }) => ({
+    id,
+    titulo: data.titulo,
+    resumen: data.resumen,
+    formato: data.formato,
+    seccion: data.seccion,
+  }));
+---
+
+<Base titulo="Restaurante sin mesas (nombre provisional)">
+  <main class="pagina">
+    <header>
+      <p class="etiqueta">Nombre provisional</p>
+      <h1>Aquí no hay mesas.</h1>
+      <p>Llegas, te dan la carta, pides y te lo llevas.</p>
+    </header>
+    <Carta client:load platos={platos} />
+  </main>
+</Base>
