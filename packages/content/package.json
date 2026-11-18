@@ -1,7 +1,0 @@
-{
-  "name": "@restaurante/content",
-  "version": "0.0.0",
-  "private": true,
-  "type": "module",
-  "description": "Los platos del restaurante, como datos. Los leen la web y, más adelante, el portfolio."
-}
